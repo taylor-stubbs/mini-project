@@ -1,0 +1,136 @@
+    h1 {
+        text-align: center;
+        font-size: 60px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: "Trebuchet MS";
+        color: white;
+        text-transform: uppercase;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        text-align: center;
+    }
+    
+    body {
+        background: #F0F0F0
+    }
+    
+    #board-input {
+        text-align: center;
+        margin-bottom: 5px
+    }
+    
+    #player-display {
+        font-family: "Trebuchet MS";
+        font-size: 20px;
+        margin: auto;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #player-counter {
+        margin-top: 15px;
+    }
+    
+    .column:hover {
+        border: 0.7px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px white;
+    }
+    
+    p {
+        font-family: "Trebuchet MS";
+        font-size: 20px;
+    }
+    
+    #column-label {
+        padding-left: 10px;
+    }
+    
+    .slot {
+        background-color: #6d9eebff;
+        height: 100px;
+    }
+    
+    .row {
+        border-color: black;
+        border-width: 3px;
+        border-style: solid;
+        background-color: #F0F0F0;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        margin: 5px;
+    }
+    
+    #game-board-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #game-board {
+        border-radius: 25px;
+        background-color: #6d9eebff;
+        border: 3px;
+        border-style: solid;
+        padding: 5px;
+        margin: 0 auto;
+        flex-direction: row;
+        display: inline-block;
+    }
+    
+    #win-player-area {
+        justify-content: space-between;
+    }
+    
+    .column {
+        flex-direction: column;
+        float: left;
+    }
+    
+    .counter {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border-color: black;
+        border-style: solid;
+    }
+    
+    #win-count-area {
+        width: 250px;
+        height: 150px;
+    }
+    
+    #red-counter {
+        background-color: red
+    }
+    
+    #yellow-counter {
+        background-color: yellow;
+    }
+    
+    .flex-container {
+        display: flex;
+    }
+    
+    #win-counters {
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+    }
+    
+    #win-count-label {
+        justify-content: center;
+    }
+    
+    .score-label {
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-family: "Trebuchet MS";
+        font-size: 25px;
+    }
+    /*width: 25px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;*/
