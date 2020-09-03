@@ -1,110 +1,84 @@
-//setupBoard(row, column);
-
-let gameBoardValues = []
-let currentPlayer = 'red'
-
+/* eslint-disable no-global-assign */
+/* eslint-disable no-plusplus */
+let gameBoardValues = [];
+let currentPlayer = 'red';
 function getGameBoardValues() {
-    return gameBoardValues;
+  return gameBoardValues;
 }
 
 function setGameBoardValues(updatedGameBoardValues) {
-    gameBoardValues = updatedGameBoardValues;
+  gameBoardValues = updatedGameBoardValues;
 }
 
 function resetBoard(row, column) {
-    document.getElementById("game-board").innerHTML = "";
-    for (let i = 0; i < row; i++) {
-        for (let j = 0; j < column; j++) {
-            gameBoardValues[row][column] = null;
-        }
+  $('#game-board').html('');
+  for (let i = 0; i < row; i++) {
+    for (let j = 0; j < column; j++) {
+      gameBoardValues[row][column] = null;
     }
-    document.getElementById("player-counter").style.background = "red"
+  }
+  $('#player-counter').css('background-color', 'red');
 }
 
 function setupGameBoardValues(row, column) {
-    let customGameBoardValues = [];
-    for (let i = 0; i < column; i++) {
-        let tempArray = []
-        for (let j = 0; j < row; j++) {
-            tempArray.push(null);
-        }
-        customGameBoardValues.push(tempArray)
+  const customGameBoardValues = [];
+  for (let i = 0; i < column; i++) {
+    const tempArray = [];
+    for (let j = 0; j < row; j++) {
+      tempArray.push(null);
     }
-    gameBoardValues = customGameBoardValues;
+    customGameBoardValues.push(tempArray);
+  }
+  gameBoardValues = customGameBoardValues;
 }
 
 function placeCounter(columnIndex) {
-    for (let i = gameBoardValues[columnIndex].length - 1; i >= 0; i--) {
-        if (gameBoardValues[columnIndex][i] == null) {
-            gameBoardValues[columnIndex][i] = "red";
-            let slot = document.getElementById(columnIndex + "," + i)
-            slot.style.background = currentPlayer;
-            break;
-        }
+  for (let i = gameBoardValues[columnIndex].length - 1; i >= 0; i--) {
+    if (gameBoardValues[columnIndex][i] == null) {
+      gameBoardValues[columnIndex][i] = 'red';
+      $(`#${columnIndex}-${i}`).css('background-color', currentPlayer);
+      break;
     }
-    if (currentPlayer == "yellow") {
-        currentPlayer = "red"
-        document.getElementById('player-counter').style.background = "red"
-    } else {
-        currentPlayer = "yellow"
-        document.getElementById('player-counter').style.background = "yellow"
-    }
-    console.log(gameBoardValues);
+  }
+  if (currentPlayer === 'yellow') {
+    currentPlayer = 'red';
+    $('#player-counter').css('background-color', 'red');
+  } else {
+    currentPlayer = 'yellow';
+    $('#player-counter').css('background-color', 'yellow');
+  }
 }
 
 function setupBoard() {
-    resetBoard();
-    let row = document.getElementById("row-input").value;
-    let column = document.getElementById("column-input").value;
-    let gameBoard = document.getElementById("game-board");
-    setupGameBoardValues(row, column);
-    for (let i = 0; i < column; i++) {
-        let divColumn = document.createElement("div");
-        divColumn.addEventListener("click", function() {
-            placeCounter(i);
-        });
-        divColumn.className = "column flex-container";
-        divColumn.id = i;
+  resetBoard();
+  const row = $('#row-input').val();
+  const column = $('#column-input').val();
+  setupGameBoardValues(row, column);
+  for (let i = 0; i < column; i++) {
+    const divColumn = document.createElement('div');
+    divColumn.addEventListener('click', () => {
+      placeCounter(i);
+    });
+    divColumn.className = 'column flex-container';
+    divColumn.id = i;
 
-        for (let j = 0; j < row; j++) {
-            let divRow = document.createElement("div");
-            divRow.className = "row";
-            divRow.id = i + "," + j;
-            divColumn.appendChild(divRow);
-        }
-        gameBoard.appendChild(divColumn);
+    for (let j = 0; j < row; j++) {
+      const divRow = document.createElement('div');
+      divRow.className = 'row';
+      divRow.id = `${i}-${j}`;
+      divColumn.appendChild(divRow);
     }
+    $('#game-board').append(divColumn);
+  }
 }
 
-module = module || {};
-module.exports = {
-    resetBoard: resetBoard,
-    setupGameBoardValues: setupGameBoardValues,
-    placeCounter: placeCounter,
-    setupBoard: setupBoard,
-    getGameBoardValues: getGameBoardValues,
-    setGameBoardValues: setGameBoardValues,
+if (typeof module !== 'undefined') {
+  module.exports = {
+    resetBoard,
+    setupGameBoardValues,
+    placeCounter,
+    setupBoard,
+    getGameBoardValues,
+    setGameBoardValues,
+  };
 }
-
-// function setupBoard() {
-//     resetBoard();
-//     let row = document.getElementById("row-input").value;
-//     let column = document.getElementById("column-input").value;
-//     let gameBoard = document.getElementById("game-board");
-//     for (let i = 0; i < row; i++) {
-//         let divRow = document.createElement("div");
-//         divRow.className = "row";
-//         divRow.id = i;
-
-//         for (let j = 0; j < column; j++) {
-//             let divColumn = document.createElement("div");
-//             divColumn.className = "col-md-2 slot";
-//             divColumn.id = j;
-//             let divCircle = document.createElement("div");
-//             divCircle.className = "circle"
-//             divColumn.appendChild(divCircle);
-//             divRow.appendChild(divColumn);
-//         }
-//         gameBoard.appendChild(divRow);
-//     }
-// }

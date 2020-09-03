@@ -1,0 +1,24 @@
+{
+  "name": "mini-project",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "board.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylor-stubbs/mini-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylor-stubbs/mini-project/issues"
+  },
+  "homepage": "https://github.com/taylor-stubbs/mini-project#readme",
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}
