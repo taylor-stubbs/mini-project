@@ -10,9 +10,10 @@
 
 <body>
     <h1>Connect 4</h1>
+    <div id ="win-banner"></div>
     <div id="board-input">
         <label for="row">Rows:</label>
-        <input type="text" id="row-input" name="row" value="4" size="3">
+        <input type="text" id="row-input" name="row" value="5" size="3">
         <label id="column-label" for="column"> Columns:</label>
         <input type="text" id="column-input" name="column" value="6" size="3"><br>
         <button onclick="setupBoard()">Create Board</button>
@@ -25,10 +26,10 @@
             <p id="win-count-label" class="flex-container">Win Count:</p>
             <div id="win-counters" class="flex-container">
                 <div id="red-counter" class="counter">
-                    <div class="score-label flex-container">1</div>
+                    <div class="score-label flex-container"></div>
                 </div>
                 <div id="yellow-counter" class="counter">
-                    <div class="score-label flex-container">0</div>
+                    <div class="score-label flex-container"></div>
                 </div>
             </div>
         </div>
