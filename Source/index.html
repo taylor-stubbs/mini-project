@@ -4,7 +4,7 @@
 
 <head>
     <title>Connect4</title>
-    <link rel="stylesheet" href="connect4.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@
         <input type="text" id="row-input" name="row" value="5" size="3">
         <label id="column-label" for="column"> Columns:</label>
         <input type="text" id="column-input" name="column" value="6" size="3"><br>
-        <button onclick="setupBoard()">Create Board</button>
+        <button onclick="newGame()">New Game</button>
     </div>
     <div id="game-board-container">
         <div id="game-board" class="flex-container"></div>
@@ -38,7 +38,7 @@
             <div id="player-counter" class="counter"></div>
         </div>
     </div>
-    <script src="./board.js"></script>
+    <script src="./functionalindex.js"></script>
 </body>
 
 

@@ -1,22 +1,3 @@
-const game = {
-  players: ['red', 'yellow'],
-  board: [],
-  turn: 0,
-  winner: null,
-};
-
-function createBoard(row, col) {
-  const boardArray = [];
-  for (let i = 0; i < col; i += 1) {
-    const colArray = [];
-    for (let j = 0; j < row; j += 1) {
-      colArray.push(null);
-    }
-    boardArray.push(colArray);
-  }
-  return boardArray;
-}
-
 function placeCounter(col, board, player) {
   // Has the counter been placed?
   let rowPointer = board[col].length - 1;
@@ -41,7 +22,7 @@ function checkWin(row, col, board) {
   // Check win for column
   for (let rowPointer = 0; rowPointer < game.board[0].length; rowPointer += 1) {
     if (board[col][rowPointer] === player) {
-      count +=1;
+      count += 1;
     } else {
       count = 0;
     }
@@ -96,12 +77,24 @@ function render(board) {
 }
 
 function newGame() {
-  const rows = $('#row-input').val();
-  const cols = $('#column-input').val();
-  game.board = createBoard(rows, cols);
+  
+  const body = {
+    col: $('#row-input').val(),
+    row: $('#column-input').val(),
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/board',
+    data: JSON.stringify(body),
+    contentType: 'application/json',
+    success: result => {
+      render(result.result);
+    },
+  });
+  
   game.turn = 0;
   game.winner = null;
-  render(game.board);
+  
 }
 
-document.onload = newGame();
+$(document).ready(newGame());
