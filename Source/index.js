@@ -72,6 +72,9 @@ function checkWin(rowPlaced, columnPlaced) {
 }
 
 function placeCounter(columnIndex) {
+  $.get(`http://localhost:8080/game/state/${columnIndex}`, function (data, status, xhr) {
+    console.log(data);
+  })
   let placed = false;
   let row;
   let column;
